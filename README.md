@@ -10,7 +10,7 @@ to
 
     <a href="relative-url">link-name</a>
 
-using the [mdast-util-find-and-replace](https://github.com/syntax-tree/mdast-util-find-and-replace) packeage.
+using the [mdast-util-find-and-replace](https://github.com/syntax-tree/mdast-util-find-and-replace) package.
 
 ## Usage
 
