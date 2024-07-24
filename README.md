@@ -6,11 +6,13 @@
 
     [[relative-url]]
     [[relative-url|link-name]]
+    [[#hash]]
 
 to
 
     <a href="relative-url">relative-url</a>
     <a href="relative-url">link-name</a>
+    <a href="#hash">hash</a>
 
 The `[[...]]` syntax is a custom markdown syntax typically used in **wikis** to have links to **internal** pages.
 
