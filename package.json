@@ -2,11 +2,16 @@
   "name": "remark-wiki-link",
   "version": "1.0.0",
   "description": "remark plugin to translate [[url|name]] to [name](url)",
-  "keywords": ["remark-plugin", "remark", "markdown"],
+  "keywords": [
+    "remark-plugin",
+    "remark",
+    "markdown"
+  ],
   "license": "MIT",
   "main": "index.js",
   "type": "module",
   "dependencies": {
+    "github-slugger": "^2.0.0",
     "mdast-util-find-and-replace": "^3.0.1"
   },
   "devDependencies": {
@@ -17,7 +22,9 @@
     "remark-rehype": "^11.1.0",
     "to-vfile": "^8.0.0"
   },
-  "files": ["index.js"],
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "test": "c8 --100 --reporter lcov node --conditions development test/index.js"
   },
