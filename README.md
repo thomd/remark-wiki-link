@@ -12,6 +12,8 @@ to
 
 using the [mdast-util-find-and-replace](https://github.com/syntax-tree/mdast-util-find-and-replace) package.
 
+The `[[...]]` syntax is a custom markdown syntax typically used in **wikis** to have links to **internal** pages.
+
 ## Usage
 
 Say we have the following file `example.md`:
