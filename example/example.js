@@ -5,10 +5,9 @@ import rehypeStringify from 'rehype-stringify'
 import { read } from 'to-vfile'
 
 const file = await remark()
-    .use(remarkWikiLink)
-    .use(remarkRehype)
-    .use(rehypeStringify)
-    .process(await read('example.md'))
+   .use(remarkWikiLink, { linkPath: '/pages/' })
+   .use(remarkRehype)
+   .use(rehypeStringify)
+   .process(await read('example.md'))
 
 console.log(file.value)
-

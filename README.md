@@ -19,7 +19,7 @@ Say we have the following file `example.md`:
 ```markdown
 # Headline
 
-paragraph with an [[internal|internal]] link
+paragraph with an [[relative-url|link-name]] link
 ```
 
 and a module `example.js`:
@@ -32,7 +32,7 @@ import rehypeStringify from 'rehype-stringify'
 import { read } from 'to-vfile'
 
 const file = await remark()
-   .use(remarkWikiLink)
+   .use(remarkWikiLink, { linkPath: '/pages/' })
    .use(remarkRehype)
    .use(rehypeStringify)
    .process(await read('example.md'))
@@ -44,9 +44,13 @@ then running `node example.js` yields:
 
 ```html
 <h1>Headline</h1>
-<p>paragraph with an <a href="internal">internal</a> link</p>
+<p>paragraph with an <a href="/pages/relative-url">link-name</a> link</p>
 ```
 
 ## API
 
 The default export is `remarkWikiLink`.
+
+### Options
+
+-  `linkPath` (`string`, optional) — path to be preprended to the link url. Default is to have no path prefix.
