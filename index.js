@@ -1,12 +1,21 @@
-import { visit } from 'unist-util-visit'
+import { findAndReplace } from 'mdast-util-find-and-replace'
 
 const remarkWikiLink = (opts) => {
    const defaultOptions = {}
    const options = { ...defaultOptions, ...opts }
    return (tree) => {
-      visit(tree, 'text', (node, index, parent) => {
-         node.value = node.value.replace(/\[\[([^\|]+)\|([^\]]+)\]\]/g, '[$2](/pages/$1)')
-      })
+      findAndReplace(tree, [
+         [
+            /\[\[([^|\]]+)\|([^\]]+)\]\]/g,
+            (match, href, text) => {
+               return {
+                  type: 'link',
+                  url: href,
+                  children: [{ type: 'text', value: text }],
+               }
+            },
+         ],
+      ])
    }
 }
 export default remarkWikiLink

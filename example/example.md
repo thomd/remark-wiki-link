@@ -1,3 +1,3 @@
 # Headline
 
-paragraph with an [[internal|internal]] link
+paragraph with a [[internal|internal]] link and another [[internal|internal]] link

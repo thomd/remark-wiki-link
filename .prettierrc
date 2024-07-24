@@ -5,5 +5,13 @@
   "tabWidth": 3,
   "trailingComma": "es5",
   "semi": false,
-  "singleQuote": true
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": "**/*.json",
+      "options": {
+        "tabWidth": 2
+      }
+    }
+  ]
 }
