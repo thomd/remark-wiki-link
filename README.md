@@ -12,8 +12,6 @@ to
     <a href="relative-url">relative-url</a>
     <a href="relative-url">link-name</a>
 
-using the [mdast-util-find-and-replace](https://github.com/syntax-tree/mdast-util-find-and-replace) package.
-
 The `[[...]]` syntax is a custom markdown syntax typically used in **wikis** to have links to **internal** pages.
 
 ## Usage
