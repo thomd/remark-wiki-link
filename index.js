@@ -12,7 +12,7 @@ const remarkWikiLink = (opts) => {
             (match, href, text) => {
                return {
                   type: 'link',
-                  url: options.linkPath + href,
+                  url: href.startsWith('#') ? href : options.linkPath + href,
                   children: [{ type: 'text', value: text }],
                }
             },

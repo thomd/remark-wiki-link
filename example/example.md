@@ -1,3 +1,3 @@
 # Headline
 
-paragraph with a [[internal|internal]] link and another [[internal|internal]] link
+paragraph with a [[page-name|internal]] link and another [[#hash|inpage]] link
