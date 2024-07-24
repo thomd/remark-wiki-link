@@ -56,3 +56,5 @@ The default export is `remarkWikiLink`.
 ### Options
 
 -  `linkPath` (`string`, optional) — path to be preprended to the link url. Default is to have no path prefix.
+
+-  `hashSlugger` (`Boolean`, optional) — Slug hashs using [github-slugger](https://github.com/Flet/github-slugger). Default is to have no slugger.
