@@ -6,6 +6,8 @@ import { read } from 'to-vfile'
 
 const file = await remark()
    .use(remarkWikiLink, { linkPath: '/pages/' })
-   .process(await read('../test/fixtures/wikiLinks/input.md'))
+   .use(remarkRehype)
+   .use(rehypeStringify)
+   .process(await read('example.md'))
 
 console.log(file.value)
