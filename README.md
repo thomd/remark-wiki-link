@@ -4,10 +4,12 @@
 
 `remark-wiki-link` is a very simple [remark](https://github.com/syntax-tree/mdast-util-find-and-replace) plugin which translates
 
+    [[relative-url]]
     [[relative-url|link-name]]
 
 to
 
+    <a href="relative-url">relative-url</a>
     <a href="relative-url">link-name</a>
 
 using the [mdast-util-find-and-replace](https://github.com/syntax-tree/mdast-util-find-and-replace) package.
