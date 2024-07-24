@@ -1,0 +1,36 @@
+{
+  "name": "remark-wiki-link",
+  "version": "1.0.0",
+  "description": "remark plugin to translate [[wiki|links]] to [links](wiki)",
+  "keywords": [
+    "remark-plugin",
+    "remark",
+    "markdown"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "unist-util-visit": "^5.0.0"
+  },
+  "devDependencies": {
+    "c8": "^10.1.2",
+    "prettier": "^3.3.2",
+    "rehype-stringify": "^10.0.0",
+    "remark": "^15.0.1",
+    "remark-rehype": "^11.1.0",
+    "to-vfile": "^8.0.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "c8 --100 --reporter lcov node --conditions development test/index.js"
+  },
+  "author": "Thomas Dürr <thomduerr@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomd/remark-wiki-link.git"
+  },
+  "bugs": "https://github.com/thomd/remark-wiki-link/issues"
+}
