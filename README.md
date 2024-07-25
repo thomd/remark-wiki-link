@@ -23,7 +23,7 @@ Say we have the following file `example.md`:
 ```markdown
 # Headline
 
-paragraph with [[page|name]] link
+paragraph with [[my page|name]] link
 ```
 
 and a module `example.js`:
@@ -36,7 +36,7 @@ import rehypeStringify from 'rehype-stringify'
 import { read } from 'to-vfile'
 
 const file = await remark()
-   .use(remarkWikiLink, { path: '/pages/' })
+   .use(remarkWikiLink, { path: '/pages/', slugger: true })
    .use(remarkRehype)
    .use(rehypeStringify)
    .process(await read('example.md'))
@@ -48,7 +48,7 @@ then running `node example.js` yields:
 
 ```html
 <h1>Headline</h1>
-<p>paragraph with <a href="/pages/page">name</a> link</p>
+<p>paragraph with <a href="/pages/my-page">name</a> link</p>
 ```
 
 ## API
