@@ -7,7 +7,6 @@ const remarkWikiLink = (opts) => {
       slugger: false,
    }
    const options = { ...defaultOptions, ...opts }
-   debugger
    const linkify = (href, text) => {
       if (options.slugger) {
          href = href.split('#')
@@ -25,4 +24,5 @@ const remarkWikiLink = (opts) => {
       findAndReplace(tree, [[/\[\[([^\]]+)\]\]/g, (match, href) => linkify(href, href.replace(/.*#/, ''))]])
    }
 }
+
 export default remarkWikiLink
