@@ -2,16 +2,16 @@
 
 ![Build](https://github.com/thomd/remark-wiki-link/workflows/plugin-test/badge.svg)
 
-`remark-wiki-link` is a very simple [remark](https://github.com/syntax-tree/mdast-util-find-and-replace) plugin which translates for example
+`remark-wiki-link` is a [remark](https://github.com/remarkjs/remark) plugin which translates
 
     [[page]]
-    [[#headline]]
+    [[page#headline]]
     [[page|name]]
 
 to
 
     <a href="page">page</a>
-    <a href="#headline">headline</a>
+    <a href="page#headline">headline</a>
     <a href="page">name</a>
 
 The `[[...]]` syntax is a custom markdown syntax typically used in **wikis** to have links to other wiki pages or to have in-page links (a.k.a. hash links).
