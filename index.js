@@ -1,31 +1,28 @@
 import { findAndReplace } from 'mdast-util-find-and-replace'
-import GithubSlugger from 'github-slugger'
+import { slug } from 'github-slugger'
 
 const remarkWikiLink = (opts) => {
    const defaultOptions = {
-      linkPath: '',
-      hashSlugger: false,
+      path: '',
+      slugger: false,
    }
    const options = { ...defaultOptions, ...opts }
-   const slugger = new GithubSlugger()
+   debugger
+   const linkify = (href, text) => {
+      if (options.slugger) {
+         href = href.split('#')
+         href = href[1] ? slug(href[0]) + '#' + slug(href[1]) : slug(href[0])
+      }
+      return {
+         type: 'link',
+         url: href.startsWith('#') ? href : options.path + href,
+         children: [{ type: 'text', value: text }],
+      }
+   }
+
    return (tree) => {
-      findAndReplace(tree, [
-         [
-            /\[\[([^|\]]+)\|([^\]]+)\]\]/g,
-            (match, href, text) => {
-               if (options.hashSlugger) {
-                  slugger.reset()
-                  href = href.split('#')
-                  href = href[1] ? href[0] + '#' + slugger.slug(href[1]) : href[0]
-               }
-               return {
-                  type: 'link',
-                  url: href.startsWith('#') ? href : options.linkPath + href,
-                  children: [{ type: 'text', value: text }],
-               }
-            },
-         ],
-      ])
+      findAndReplace(tree, [[/\[\[([^|\]]+)\|([^\]]+)\]\]/g, (match, href, text) => linkify(href, text)]])
+      findAndReplace(tree, [[/\[\[([^\]]+)\]\]/g, (match, href) => linkify(href, href.replace(/.*#/, ''))]])
    }
 }
 export default remarkWikiLink

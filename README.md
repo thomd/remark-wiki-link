@@ -2,19 +2,19 @@
 
 ![Build](https://github.com/thomd/remark-wiki-link/workflows/plugin-test/badge.svg)
 
-`remark-wiki-link` is a very simple [remark](https://github.com/syntax-tree/mdast-util-find-and-replace) plugin which translates
+`remark-wiki-link` is a very simple [remark](https://github.com/syntax-tree/mdast-util-find-and-replace) plugin which translates for example
 
-    [[relative-url]]
-    [[relative-url|link-name]]
-    [[#hash]]
+    [[page]]
+    [[#headline]]
+    [[page|name]]
 
 to
 
-    <a href="relative-url">relative-url</a>
-    <a href="relative-url">link-name</a>
-    <a href="#hash">hash</a>
+    <a href="page">page</a>
+    <a href="#headline">headline</a>
+    <a href="page">name</a>
 
-The `[[...]]` syntax is a custom markdown syntax typically used in **wikis** to have links to **internal** pages.
+The `[[...]]` syntax is a custom markdown syntax typically used in **wikis** to have links to other wiki pages or to have in-page links (a.k.a. hash links).
 
 ## Usage
 
@@ -23,7 +23,7 @@ Say we have the following file `example.md`:
 ```markdown
 # Headline
 
-paragraph with an [[relative-url|link-name]] link
+paragraph with [[page|name]] link
 ```
 
 and a module `example.js`:
@@ -36,7 +36,7 @@ import rehypeStringify from 'rehype-stringify'
 import { read } from 'to-vfile'
 
 const file = await remark()
-   .use(remarkWikiLink, { linkPath: '/pages/' })
+   .use(remarkWikiLink, { path: '/pages/' })
    .use(remarkRehype)
    .use(rehypeStringify)
    .process(await read('example.md'))
@@ -48,7 +48,7 @@ then running `node example.js` yields:
 
 ```html
 <h1>Headline</h1>
-<p>paragraph with an <a href="/pages/relative-url">link-name</a> link</p>
+<p>paragraph with <a href="/pages/page">name</a> link</p>
 ```
 
 ## API
@@ -57,6 +57,7 @@ The default export is `remarkWikiLink`.
 
 ### Options
 
--  `linkPath` (`string`, optional) — path to be preprended to the link url. Default is to have no path prefix.
+-  `path` (`string`, optional) — path to be preprended to the link url. Default is to have no path prefix.
 
--  `hashSlugger` (`Boolean`, optional) — Slug hashs using [github-slugger](https://github.com/Flet/github-slugger). Default is to have no slugger.
+-  `slugger` (`Boolean`, optional) — Slug URLs using [github-slugger](https://github.com/Flet/github-slugger). Using the slugger has a minor flaw, if a page
+   has headlines with the same name and you want to have in-page links. Default is `false`.
