@@ -7,6 +7,7 @@ const remarkWikiLink = (opts) => {
       slugger: false,
    }
    const options = { ...defaultOptions, ...opts }
+
    const linkify = (href, text) => {
       if (options.slugger) {
          href = href.split('#')

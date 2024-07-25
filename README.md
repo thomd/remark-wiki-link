@@ -14,11 +14,11 @@ to
     <a href="page#headline">headline</a>
     <a href="page">name</a>
 
-The `[[...]]` syntax is a custom markdown syntax typically used in **wikis** to have links to other wiki pages or to have in-page links (a.k.a. hash links).
+The `[[...]]` syntax is a custom markdown syntax typically used in **wiki** systems to have links to other wiki pages or to have in-page links.
 
 ## Usage
 
-Say we have the following file `example.md`:
+Given the following file `example.md`:
 
 ```markdown
 # Headline
@@ -57,7 +57,7 @@ The default export is `remarkWikiLink`.
 
 ### Options
 
--  `path` (`string`, optional) — path to be preprended to the link url. Default is to have no path prefix.
+-  `path` (`string`, optional) — path to be preprended to the link url. Default is `''`.
 
 -  `slugger` (`Boolean`, optional) — Slug URLs using [github-slugger](https://github.com/Flet/github-slugger). Using the slugger has a minor flaw, if a page
    has headlines with the same name and you want to have in-page links. Default is `false`.
