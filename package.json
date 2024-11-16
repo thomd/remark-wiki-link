@@ -1,5 +1,5 @@
 {
-  "name": "remark-wiki-link",
+  "name": "@thomd/remark-wiki-link",
   "version": "1.0.0",
   "description": "remark plugin to translate [[url|name]] to [name](url)",
   "keywords": [
