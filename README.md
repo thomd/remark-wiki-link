@@ -61,3 +61,5 @@ The default export is `remarkWikiLink`.
 
 -  `slugger` (`Boolean`, optional) — Slug URLs using [github-slugger](https://github.com/Flet/github-slugger). Using the slugger has a minor flaw, if a page
    has headlines with the same name and you want to have in-page links. Default is `false`.
+
+-  `trailingSlash` (`Boolean`, optional) — Add a trailing slash to URL. Default is `false`.

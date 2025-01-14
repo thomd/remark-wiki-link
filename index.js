@@ -5,6 +5,7 @@ const remarkWikiLink = (opts) => {
    const defaultOptions = {
       path: '',
       slugger: false,
+      trailingSlash: false,
    }
    const options = { ...defaultOptions, ...opts }
 
@@ -12,6 +13,10 @@ const remarkWikiLink = (opts) => {
       if (options.slugger) {
          href = href.split('#')
          href = href[1] ? slug(href[0]) + '#' + slug(href[1]) : slug(href[0])
+      }
+      if (options.trailingSlash) {
+         href = href.replace(/(.+)#(.+)/, '$1/#$2')
+         href = href.includes('#') ? href : href.replace(/([^/])$/, '$1/')
       }
       return {
          type: 'link',
